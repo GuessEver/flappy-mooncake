@@ -40,7 +40,7 @@ swooshSnd = null
 
 tubesTimer = null
 
-githubHtml = """<p style="color: white">晴空工作室<br>http://www.qkteam.com</p>"""
+githubHtml = """<p style="color: white">晴空工作室 http://www.qkteam.com</p>"""
 
 floor = Math.floor
 
