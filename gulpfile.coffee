@@ -8,19 +8,19 @@ uglify = require 'gulp-uglify'
 gulp.task 'coffee', ->
   gulp.src ['index.coffee']
   .pipe coffee( bare: true ).on('error', gutil.log)
-  .pipe gulp.dest 'tmp'
+  .pipe gulp.dest 'build'
 
-gulp.task 'concat', ->
-  gulp.src ['bower_components/phaser/phaser.js', 'tmp/index.js']
+gulp.task 'concat', ['coffee'], ->
+  gulp.src ['bower_components/phaser/build/phaser.js', 'build/index.js']
   .pipe concat('index.min.js')
   .pipe uglify()
   .pipe gulp.dest '.'
   .pipe connect.reload()
 
 gulp.task 'watch', ->
-  gulp.watch ['index.coffee', '!gulpfile.coffee'], ['coffee']
+  gulp.watch ['index.coffee', '!gulpfile.coffee'], ['coffee', 'concat']
 
-gulp.task "connect", connect.server(
+gulp.task 'connect', connect.server(
   root: __dirname
   port: 3000
   livereload: true

@@ -117,7 +117,7 @@ main = ->
     hiscore = (if hiscore then hiscore else score)
     hiscore = (if score > parseInt(hiscore, 10) then score else hiscore)
     window.localStorage.setItem "hiscore", hiscore
-    gameOverText.setText "GAMEOVER\n\nHIGH SCORE\n\n" + hiscore
+    gameOverText.setText "GAMEOVER\n\nMY HIGH SCORE\n\n" + hiscore
     gameOverText.renderable = true
 
     # Stop all tubes
@@ -158,14 +158,14 @@ main = ->
     assets =
       spritesheet:
         bird: [
-          "assets/bird.png"
+          "assets/mooncake.png"
           36
           26
         ]
 
       image:
-        tubeTop: ["assets/tube1.png"]
-        tubeBottom: ["assets/tube2.png"]
+        tubeTop: ["assets/knife.png"]
+        tubeBottom: ["assets/fork.png"]
         ground: ["assets/ground.png"]
         bg: ["assets/bg.png"]
 
@@ -186,9 +186,9 @@ main = ->
     return
 
   create = ->
-    console.log("%chttps://github.com/hyspace/flappy", "color: black; font-size: x-large");
+    # console.log("%chttps://github.com/hyspace/flappy", "color: black; font-size: x-large");
     ratio = window.innerWidth / window.innerHeight
-    document.querySelector('#github').innerHTML = githubHtml if ratio > 1.15 or ratio < 0.7
+    # document.querySelector('#github').innerHTML = githubHtml if ratio > 1.15 or ratio < 0.7
     document.querySelector('#loading').style.display = 'none'
 
     # Set world dimensions
@@ -295,8 +295,11 @@ main = ->
     score = 0
     # credits.renderable = true
     # credits.setText "see console log\nfor github url"
-    scoreText.setText "Flappy Bird"
-    instText.setText "TOUCH TO FLAP\nbird WINGS"
+    if window.nickname
+      scoreText.setText "Flappy Mooncake\n" + window.nickname
+    else
+      scoreText.setText "Flappy Mooncake"
+    instText.setText "Escape from knife and forks!!!"
     gameOverText.renderable = false
     bird.body.allowGravity = false
     bird.reset game.world.width * 0.3, game.world.height / 2
@@ -393,7 +396,7 @@ WebFontConfig =
 (->
   wf = document.createElement('script')
   wf.src = (if 'https:' == document.location.protocol then 'https' else 'http') +
-    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'
+    '://ajax.lug.ustc.edu.cn/ajax/libs/webfont/1/webfont.js'
   wf.type = 'text/javascript'
   wf.async = 'true'
   s = document.getElementsByTagName('script')[0]

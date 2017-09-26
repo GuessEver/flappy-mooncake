@@ -1,7 +1,7 @@
 {
-  "name": "flappy",
+  "name": "flappy-mooncake",
   "version": "0.0.1",
-  "description": "flappy bird in html5",
+  "description": "flappy mooncake based on flappy bird in html5",
   "devDependencies": {
     "gulp": "~3.5.2",
     "coffee-script": "~1.7.1",
@@ -16,17 +16,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hyspace/flappy"
+    "url": "https://github.com/GuessEver/flappy-mooncake"
   },
   "keywords": [
     "game",
     "flappy",
-    "bird"
+    "bird",
+    "mooncake",
+    "mid-autumn festival"
   ],
-  "author": "shan zhou <hyspace@gmail.com>",
+  "author": "Zhihao Jiang <guessever@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hyspace/flappy/issues"
+    "url": "https://github.com/GuessEver/flappy-mooncake/issues"
   },
-  "homepage": "https://github.com/hyspace/flappy"
+  "homepage": "https://github.com/GuessEver/flappy-mooncake"
 }

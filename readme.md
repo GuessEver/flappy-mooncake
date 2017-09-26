@@ -1,13 +1,15 @@
-#HTML5 flappy bird
+# HTML5 flappy mooncake
 
-play here: http://little33.com/flappy/
+special version for mid-autumn festival
 
-based on http://uralozden.com/flappy/
+play here https://guessever.github.io/flappy-mooncake/
 
-##License
+based on: https://github.com/hyspace/flappy
+
+## License
 
 MIT License
 
-##Copyright
+## Copyright
 
 THE IMAGES' AND SOUNDS' COPYRIGHT IS OWNED BY THE ORIGINAL GAME'S AUTHOR.

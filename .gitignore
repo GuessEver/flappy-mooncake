@@ -32,6 +32,8 @@ build
 node_modules
 bower_components
 tmp
+build
+dist
 
 
 # workspace files are user-specific
