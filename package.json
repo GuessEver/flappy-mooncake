@@ -30,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/GuessEver/flappy-mooncake/issues"
   },
-  "homepage": "https://github.com/GuessEver/flappy-mooncake"
+  "homepage": "https://github.com/GuessEver/flappy-mooncake",
+  "dependencies": {
+    "jQuery": "^1.7.4"
+  }
 }

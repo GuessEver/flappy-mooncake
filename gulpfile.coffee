@@ -11,7 +11,7 @@ gulp.task 'coffee', ->
   .pipe gulp.dest 'build'
 
 gulp.task 'concat', ['coffee'], ->
-  gulp.src ['bower_components/phaser/build/phaser.js', 'build/index.js']
+  gulp.src ['bower_components/phaser/build/phaser.js', 'jquery.min.js', 'build/index.js']
   .pipe concat('index.min.js')
   .pipe uglify()
   .pipe gulp.dest '.'

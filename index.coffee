@@ -1,6 +1,6 @@
 DEBUG = false
 SPEED = 160
-GRAVITY = 1100
+GRAVITY = 4000 #1100
 FLAP = 320
 SPAWN_RATE = 1 / 1200
 OPENING = 100
@@ -13,6 +13,7 @@ GROUND_HEIGHT = 64
 GROUND_Y = HEIGHT - GROUND_HEIGHT
 
 parent = document.querySelector("#screen")
+hahaha = document.querySelector("#hahaha")
 gameStarted = undefined
 gameOver = undefined
 
@@ -106,18 +107,22 @@ main = ->
     return
 
   setGameOver = ->
+    $(hahaha).fadeIn(200);
     gameOver = true
     bird.body.velocity.y = 100 if bird.body.velocity.y > 0
     bird.animations.stop()
-    bird.frame = 1
+    bird.frame = 3
     instText.setText "TOUCH\nTO TRY AGAIN"
     instText.renderable = true
     hiscore = window.localStorage.getItem("hiscore")
     hiscore = (if hiscore then hiscore else score)
     hiscore = (if score > parseInt(hiscore, 10) then score else hiscore)
     window.localStorage.setItem "hiscore", hiscore
-    gameOverText.setText "GAMEOVER\n\nMY HIGH SCORE\n\n" + hiscore
+    # gameOverText.setText "GAMEOVER\n\nMY HIGH SCORE\n\n" + hiscore
     gameOverText.renderable = true
+
+    # update score
+    $.post('score.php', { score: score }, (data) -> { });
 
     # Stop all tubes
     tubes.forEachAlive (tube) ->
@@ -158,8 +163,8 @@ main = ->
       spritesheet:
         bird: [
           "assets/mooncake.png"
-          36
           26
+          22
         ]
 
       image:
@@ -294,10 +299,11 @@ main = ->
     score = 0
     # credits.renderable = true
     # credits.setText "see console log\nfor github url"
+    initText = "Supergravity!!!\n\nFlappy Mooncake"
     if window.nickname
-      scoreText.setText "Flappy Mooncake\n" + window.nickname
+      scoreText.setText initText + "\n\n" + window.nickname
     else
-      scoreText.setText "Flappy Mooncake"
+      scoreText.setText initText
     instText.setText "Escape from knife and forks!!!"
     gameOverText.renderable = false
     bird.body.allowGravity = false
@@ -306,6 +312,7 @@ main = ->
     bird.animations.play "fly"
     tubes.removeAll()
     invs.removeAll()
+    $(hahaha).fadeOut(200);
     return
 
   start = ->
